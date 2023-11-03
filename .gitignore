@@ -1,0 +1,26 @@
+# Windows temporary files
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# Visual Studio project folders
+## .vscode/
+## .vs/
+## bin/
+## obj/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio workspace file
+.suo
+
+# Rider workspace file
+.idea/
+
+# User-specific data
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
