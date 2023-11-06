@@ -1,0 +1,14 @@
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\bin\Debug\net7.0\ChatUIConsoleApp.exe
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\bin\Debug\net7.0\ChatUIConsoleApp.deps.json
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\bin\Debug\net7.0\ChatUIConsoleApp.runtimeconfig.json
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\bin\Debug\net7.0\ChatUIConsoleApp.dll
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\bin\Debug\net7.0\ChatUIConsoleApp.pdb
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ChatUIConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ChatUIConsoleApp.AssemblyInfoInputs.cache
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ChatUIConsoleApp.AssemblyInfo.cs
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ChatUIConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ChatUIConsoleApp.dll
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\refint\ChatUIConsoleApp.dll
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ChatUIConsoleApp.pdb
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ChatUIConsoleApp.genruntimeconfig.cache
+C:\Users\mf_ay\source\repos\mfurkanayhan\senior-dotnet-developer-roadmap\01.ConsoleApps\ChatUIConsoleApp\obj\Debug\net7.0\ref\ChatUIConsoleApp.dll

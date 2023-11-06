@@ -1,2 +1,3 @@
 # 01. Console Apps
-- ### MyFirstConsoleApp
+- ### [MyFirstConsoleApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.ConsoleApps/MyFirstConsoleApp)
+- ### [ChatUIConsoleApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.ConsoleApps/ChatUIConsoleApp)
