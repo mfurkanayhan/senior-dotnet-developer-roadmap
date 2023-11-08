@@ -1,26 +1,47 @@
-# Windows temporary files
-[Tt]humbs.db
-[Dd]esktop.ini
+# Visual Studio dosyaları
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
-# Visual Studio project folders
-## .vscode/
-## .vs/
-## bin/
-## obj/
+# Build dosyaları
+bin/
+obj/
 
 # .NET Core
 project.lock.json
 project.fragment.lock.json
 artifacts/
 
-# Visual Studio workspace file
-.suo
+# Resharper
+_ReSharper*/
+*.sln.iml
 
-# Rider workspace file
+# Rider
 .idea/
 
-# User-specific data
+# User-specific data (Visual Studio, Rider, vb.)
 *.suo
-*.user
-*.userosscache
-*.sln.docstates
+*.userprefs
+
+# NuGet klasörü
+packages/
+
+# User-specific Visual Studio Cache
+ClientBin/
+[Ss]tyle[Cc]op/
+
+# SQL Server
+[Bb]in/
+obj/
+*.dbmdl
+*.dbproj.suo
+*.[Dd]bmdl
+*.[Dd]bproj
+*.rdl.data
+*.rdl.[rR][eE][sS]
+
+# Visual Studio 2019 configuration folder
+.vs2019/
