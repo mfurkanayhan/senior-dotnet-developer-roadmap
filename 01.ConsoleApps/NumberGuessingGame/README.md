@@ -29,12 +29,14 @@ To play the game, follow these steps:
 
 ![Game Screenshot](screenshot.png)
 
+## Contributors
+
+- [@M.Furkan Ayhan](https://github.com/mfurkanayhan)
+
+Feel free to contribute to this project by adding more features or improving existing functionalities.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 Enjoy the game!
-
----
-
-Feel free to customize this README.md file with your own information, such as your name and GitHub profile link, and add any additional details or sections that you find relevant. Don't forget to include a screenshot of the game if you have one.

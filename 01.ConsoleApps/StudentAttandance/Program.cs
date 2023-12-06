@@ -10,14 +10,14 @@ internal class Program
             new Student()
             {
                 No = 1,
-                Name = "Muhammet Furkan Ayhan",
+                Name = "John Doe",
                 Class = "1A",
                 DateOfBirth = Convert.ToDateTime("23.05.1995"),
             },
             new Student()
             {
                 No = 2,
-                Name = "Seda Yavuz Ayhan",
+                Name = "Jane Smith",
                 Class = "1A",
                 DateOfBirth = Convert.ToDateTime("10.06.1995")
             }
@@ -26,7 +26,7 @@ internal class Program
         var student = new Student()
         {
             No = 3,
-            Name = "Yusuf Emre Ayhan",
+            Name = "Alex Johnson",
             Class = "1A",
             DateOfBirth = Convert.ToDateTime("10.06.1995")
         };
@@ -55,14 +55,14 @@ internal class Program
             {
                 if (!s.IsInClass)
                 {
-                    goto start;
+                    goto start; // Jump to the block labeled 'start'
                 }
             }
 
             Console.WriteLine("All students are in class!");
             break;
 
-        start:;
+        start:; // Label
             Console.WriteLine("Tell me who is in class?");
             string noString = Console.ReadLine();
             int no = 0;
