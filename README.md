@@ -4,3 +4,7 @@ This repository is created to support the career development and roadmap of a so
 ## [01.ConsoleApps](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.ConsoleApps)
 
 ## [02.DesktopApps](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/02.DesktopApps)
+
+## [03.HTML](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/03.HTML)
+
+## [04.CSS](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/04.CSS)
