@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <!-- The only reason we use the form element is to apply validation rules.
+        Otherwise, the elements inside the form can be called outside the form as well.
+        Because JavaScript can work inside every element. -->
+    <form onsubmit="add(event)">
+        <div>
+            Subject
+            <input type="text" required minlength="5">
+            <!--This HTML code creates a text input field. It requires the user to enter text of at least 5 characters in length. Additionally, it specifies that this field cannot be left blank, meaning the user must enter something.-->
+        </div>
+        <div>
+            <button type="submit">Send</button>
+            <!-- The Button Element triggers an action. (Here it triggers the Form) -->
+            <!-- Type => Attribute, Submit => Event -->
+        </div>
+    </form>
+
+    <ul></ul>
+
+    <script>
+        /*
+          There are 3 types of variables in JavaScript.
+            var - An old definition method. Used to define function-scoped and reassignable variables. However, compared to let and const, it may cause scope issues.
+            
+            let - Used to define block-scoped and reassignable variables. It is valid only within the block it is defined.
+            
+            const - Used to define block-scoped and non-reassignable constants, meaning once a value is assigned, it cannot be changed throughout the execution of the program. However, for mutable structures like objects or arrays, the content of a variable defined with const can be changed, but you cannot assign it to another value. (Here, the element itself is not changing, just the content is being updated.)
+        */
+
+        const el = document.querySelector("ul"); 
+        /*  
+            This code selects the first <ul> element in the HTML document and assigns it to a constant variable.
+            This variable can later be used for various DOM operations on this element.
+        */
+        const inputEl = document.querySelector("input"); 
+        
+        // In JavaScript, methods start with the name "function" followed by the method's name.
+        function add(event) {
+            event.preventDefault();
+
+            // el.innerHTML = "<li>Furkan</li>"; // This line replaces the content of the <ul> element with a list item named "Furkan".
+
+            /* el.innerHTML = `<li>${inputEl.value}</li>`; This line replaces the content of the <ul> element with a list item containing the text entered by the user.*/
+
+            el.innerHTML += `<li>${inputEl.value}</li>`; // This line adds a list item containing the text entered by the user to the content of the <ul> element.
+
+            inputEl.value = ""; // Clears the entered value. Prepares the ground for writing a new value.
+
+            inputEl.focus(); // This method enables focus on the specified input element when the page loads or a specific event occurs.
+        }
+    </script>
+</body>
+
+</html>
