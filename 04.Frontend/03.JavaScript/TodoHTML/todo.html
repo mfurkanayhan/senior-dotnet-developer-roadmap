@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+
+<body>
+    <h1>Todo App</h1>
+    <hr>
+    <div id="save">
+        <h4>Save Form</h4>
+        <form onsubmit="save(event)">
+            <div>
+                Work
+                <input type="text" id="work">
+            </div>
+            <div>
+                Is Done
+                <input type="checkbox" id="isDone">
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="update" style="display: none;">
+        <h4>Update Form</h4>
+        <form onsubmit="update(event)">
+            <div>
+                Work
+                <input type="text" id="updateWork">
+            </div>
+            <div>
+                Is Done
+                <input type="checkbox" id="updateIsDone">
+            </div>
+            <div>
+                <button type="submit">Update</button>
+                <button type="button" onclick="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Work</th>
+                <th>Is Done</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+    <script>
+        const workEl = document.getElementById("work");
+        const isDoneEl = document.getElementById("isDone");
+        const tbodyEl = document.querySelector("tbody");
+        const updateWorkEl = document.getElementById("updateWork");
+        const updateIsDoneEl = document.getElementById("updateIsDone");
+        const updateFormEl = document.getElementById("update");
+        const saveFormEl = document.getElementById("save");
+
+        let todos = [];
+        
+        getApiRequest();
+        //let count = localStorage.getItem("count") ? localStorage.getItem("count") : 0; 
+        // localStorage.getItem("count"), tarayıcıda bulunan yerel depolama (local storage) alanından belirli bir anahtar (key) ile ilişkilendirilmiş değeri almak için kullanılır.
+        // Bu genellikle web uygulamalarında kullanıcı tercihleri, sayfa durumu veya diğer verilerin saklanması için kullanılır.
+
+        let updateIndex = 0;
+
+        function getApiRequest() {
+            fetch("https://localhost:7217/api/Values/GetAll")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                todos = data;
+                createTBodyHTMLUsingTodos();
+            })
+        }
+
+        function save(e) {
+            e.preventDefault(); // Bir olayın varsayılan davranışını engellemek için kullanılır. Özellikle, HTML formunun gönderilmesi gibi bir olayın varsayılan işlemini durdurarak, geliştiricinin özel işlemler eklemesine olanak tanır.
+
+            const obj = {
+                title: workEl.value,
+                completed: isDoneEl.checked
+            }
+
+            fetch("https://localhost:7217/api/Values/Add",{
+                method: "POST",
+                body: JSON.stringify(obj),
+                headers: {
+                    "content-type": "text/json"
+                }
+            })
+            .then(() => {
+                getApiRequest();
+                workEl.value = "";
+                isDoneEl.checked = false;
+                workEl.focus();
+            });
+
+            //localStorage.setItem("count",count);
+
+            /*
+            for(let i in todos){
+                //i keyword'ü index alır
+                console.log(i);
+            }
+            for(let t of todos){
+                //of keyword'ü döngüde değer alır
+                console.log(t);
+            }
+            */
+
+            
+        }
+
+        function edit(index) {
+            updateIndex = index;
+
+            updateFormEl.style.display = "block";
+            saveFormEl.style.display = "none";
+
+            updateWorkEl.value = todos[index].title;
+            updateIsDoneEl.checked = todos[index].completed;
+
+            const hideElements = document.querySelectorAll(".hide");
+            for (let el of hideElements) {
+                el.style.display = "none";
+            }
+        }
+
+        function cancel() {
+            updateFormEl.style.display = "none";
+            saveFormEl.style.display = "block";
+
+            const hideElements = document.querySelectorAll(".hide");
+            for (let el of hideElements) {
+                el.style.display = "inline";
+            }
+        }
+
+        function update(e) {
+            e.preventDefault();
+
+            const obj = {
+                id: todos[updateIndex].id,
+                title: updateWorkEl.value,
+                completed: updateIsDoneEl.checked,
+            }
+
+            fetch("https://localhost:7217/api/Values/Update",{
+                method: "POST",
+                body: JSON.stringify(obj),
+                headers: {
+                    "Content-Type": "text/json"
+                }
+            }).then(()=> {
+                cancel();
+                getApiRequest();
+            })
+        }
+
+        function remove(index) {
+            const result = confirm("You want to delete this record?");
+            if (result) {
+                fetch("https://localhost:7217/api/Values/RemoveById/" + todos[index].id)
+                .then(() => {
+                    getApiRequest();
+                });
+            }
+        }
+
+        function createTBodyHTMLUsingTodos() {
+            let text = "";
+
+            for (let i in todos) {
+                text += `
+                    <tr id="tr${+i + 1}">
+                        <td>${+i + 1}</td>
+                        <td>${todos[i].title}</td>
+                        <td>${todos[i].completed ? 'Done' : 'UnDone'}</td>
+                        <td>
+                            <button class="hide" onclick="edit('${i}')">Edit</button>
+                            <button class="hide"onclick="remove('${i}')">Remove</button>
+                        </td>
+                    </tr>    
+                `
+            }
+            tbodyEl.innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>

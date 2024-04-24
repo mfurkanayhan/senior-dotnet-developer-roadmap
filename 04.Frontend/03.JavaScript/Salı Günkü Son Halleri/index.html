@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <!-- Form elementini kullanmamızın tek sebebi Validation kurallarını uygulayabilmek. 
+        Yoksa Form elementi içindeki Element'ler Form dışında da çağrılabilir. 
+        Çünkü JavaScript her elementin içinde çalışabilir. -->
+    <form onsubmit="add(event)">
+        <div>
+            Subject
+            <input type="text" required minlength="5">
+            <!--Bu HTML kodu, bir metin girişi alanı oluşturur. Kullanıcıdan en az 5 karakter uzunluğunda bir metin girmesini ister. Ayrıca, bu alanın boş bırakılamayacağını belirtir, yani kullanıcı bir şeyler girmek zorundadır.-->
+        </div>
+        <div>
+            <button type="submit">Send</button>
+            <!-- Button Element'i bir tetikleme yapar. (Burada Form'u tetikler) -->
+            <!-- Type => Attribute, Submit => Event -->
+        </div>
+    </form>
+
+    <ul></ul>
+
+    <script>
+        /*
+          JavaScript'te 3 değişken tipi vardır.
+            var - Eski bir tanımlama şekli. Ancak, let ve const ile karşılaştırıldığında kapsam (scope) sorunlarına neden olabilir.
+            let - Blok kapsamında (block-scoped) bir değişken tanımlar. Yani, sadece tanımlandığı blok içinde geçerlidir.
+            const - Sabit bir değişken tanımlar, yani bir kez değer atandıktan sonra değiştirilemez.
+        */
+
+        const el = document.querySelector("ul"); 
+        /*  
+            Bu kod, HTML dokümanındaki ilk <ul> öğesini seçer ve bu öğeyi temsil eden bir sabit değişkene atar.
+            Bu değişken, daha sonra bu öğe üzerinde çeşitli DOM işlemleri yapmak için kullanılabilir.
+        */
+        const inputEl = document.querySelector("input"); 
+        
+        // JavaScript'te metotlar "function" ismiyle başlar. Ve ardından metotun adı yazılır.
+        function add(event) {
+            event.preventDefault();
+
+            // el.innerHTML = "<li>Furkan</li>"; // Bu satır, <ul> öğesinin içeriğini "Furkan" adlı bir liste öğesiyle değiştirir.
+
+            /* el.innerHTML = `<li>${inputEl.value}</li>`; Bu satır, <ul> öğesinin içeriğini kullanıcının girdiği metni içeren bir liste öğesiyle değiştirir.*/
+
+            el.innerHTML += `<li>${inputEl.value}</li>`; // Bu satır, <ul> öğesinin içeriğini kullanıcının girdiği metni içeren bir liste öğesiyle değiştirir.
+
+            inputEl.value = ""; // Yazmış olduğumuz değeri temizler. Yeni bir değer yazmak için zemin hazırlar.
+
+            inputEl.focus(); // Sayfa yüklendiğinde veya belirli bir olay gerçekleştiğinde belirtilen input öğesine odaklanmayı sağlar.
+
+
+        }
+    </script>
+</body>
+
+</html>
