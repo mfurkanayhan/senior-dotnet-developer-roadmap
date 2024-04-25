@@ -25,4 +25,8 @@ string url = @"http:\";  // Correctly formats the backslash
 int remainder = counter % 2;  // Calculates remainder of counter divided by 2
 
 Console.WriteLine(fullName);  // Displays the full name
+// To display the output of other variables, simply use the Console.WriteLine() method 
+// and write the name of the variable whose value you want to see.
+// For example, to display the value of 'details', you can write:
+Console.WriteLine(details);
 Console.ReadLine();  // Waits for a user input
