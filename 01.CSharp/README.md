@@ -6,4 +6,5 @@
 - #### [05.Operators](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/05.Operators)
 - #### [06.ConditionalBlocks](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/06.ConditionalBlocks)
 - #### [07.Loops](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/07.Loops)
-- #### [08.Lists](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/08.Lists)
+- #### [08.Arrays](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/08.Arrays)
+- #### [09.Lists](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/09.Lists)
