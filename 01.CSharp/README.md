@@ -8,3 +8,4 @@
 - #### [07.Loops](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/07.Loops)
 - #### [08.Arrays](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/08.Arrays)
 - #### [09.Lists](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/09.Lists)
+- #### [10.Methods](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/01.CSharp/10.Methods)
