@@ -13,3 +13,7 @@ This README section explains different types of loops in C#, providing insights 
 ## Do-While Loop
 - **Description**: Highlights the usage of a do-while loop, which guarantees that the loop's body is executed at least once before the condition is checked. This feature makes it unique among loop structures.
 - **Example Usage**: Suitable for menus or user input validation where at least one execution of the loop body is required regardless of the condition.
+# Break and Continue in Loops
+- **Break**: Terminates the loop entirely when a certain condition is met, preventing any further iterations.
+- **Continue**: Skips the current iteration and proceeds to the next iteration if a specific condition occurs.
+Using `break` and `continue` allows for more granular control of the loop execution flow, enabling scenarios such as exiting a loop when a valid result is found (`break`), or skipping unnecessary computations (`continue`).
