@@ -1,4 +1,3 @@
-
 # Introduction to HTML for Beginners
 
 Welcome to your first steps into the world of HTML! HTML (HyperText Markup Language) is the standard markup language used to create web pages. It describes the structure of web pages using markup. Elements are the building blocks of HTML pages, and through this guide, we'll explore some of the most commonly used elements in HTML.
@@ -120,6 +119,6 @@ Example:
 - **Second HTML File:** Contains a simple "Hello, World!" example with headings.
 - **Most Popular Elements:** Showcases various popular HTML elements like paragraphs, links, images, lists, and tables.
 Dive into these examples, experiment by changing values, and see how the browser interprets your HTML. Happy coding!
-- #### [Portfolio](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/03.HTML/Portfolio) - This bonus project is a multi-page HTML website showcasing a portfolio with home, about, skills, and contact sections, interconnected via a consistent navigation bar.
+- #### [Portfolio](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/04.Frontend/01.HTML/Portfolio) - This bonus project is a multi-page HTML website showcasing a portfolio with home, about, skills, and contact sections, interconnected via a consistent navigation bar.
 
 I hope this has been useful for you..
