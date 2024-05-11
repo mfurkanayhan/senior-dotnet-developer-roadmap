@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <style>
+        li:hover{
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+    <h1>Simple TODO List</h1>
+    <input type="text" placeholder="Add new task" id="todoInput">
+    <button onclick="addTodo()">Add</button>
+    <ul></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', getAll);
+
+        const inputEl = document.getElementById('todoInput');
+        inputEl.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                addTodo();
+            }
+        });
+
+        async function getAll() {
+            const response = await fetch('http://localhost:7000/api/getAll');
+            const todos = await response.json();
+            const ulEl = document.querySelector('ul');
+            ulEl.innerHTML = '';
+            todos.forEach(todo => {
+                const li = document.createElement('li');
+                const input = document.createElement('input');
+                input.value = todo.work;
+                const updateButton = document.createElement('button');
+                updateButton.textContent = 'Update';
+                updateButton.onclick = () => updateTodo(todo._id, input.value);
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteTodo(todo._id);
+                li.append(input, updateButton, deleteButton);
+                ulEl.append(li);
+            });
+        }
+
+        async function addTodo() {
+            const inputEl = document.getElementById('todoInput');
+            if (inputEl.value.trim() !== '') {
+                const data = { work: inputEl.value };
+                await fetch('http://localhost:7000/api/save', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                inputEl.value = '';
+                getAll();
+            }
+        }
+
+        async function updateTodo(id, value) {
+            await fetch('http://localhost:7000/api/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ _id: id, work: value })
+            });
+            toastr.info('Task updated');
+            getAll();
+        }
+
+        async function deleteTodo(id) {
+            await fetch('http://localhost:7000/api/removeById', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ _id: id })
+            });
+            toastr.success('Task deleted');
+            getAll();
+        }
+    </script>
+</body>
+</html>
