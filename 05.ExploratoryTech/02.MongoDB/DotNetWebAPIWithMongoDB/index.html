@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <style>
+        li:hover {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+    <h1>DotNet WebAPI With MongoDB Web Page</h1>
+
+    <input type="text" id="todoInput" placeholder="Enter your task">
+    <button onclick="save()">Save</button>
+    <button onclick="seedAndMeasure()">Seed and Measure</button>
+    <button onclick="removeAll()">Remove All</button>
+    <p id="measureResult">Duration: N/A</p>
+
+    <ul></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', getAll);
+        document.getElementById('todoInput').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                save();
+            }
+        });
+
+        async function getAll() {
+            try {
+                const response = await fetch("https://localhost:7201/api/values/getAll");
+                const data = await response.json();
+                const ulEl = document.querySelector("ul");
+                ulEl.innerHTML = ''; // Clear the list before adding new items
+                data.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<input value="${item.work}" id="input-${index}">
+                                        <button onclick="update(event)" data-id="${item._id}" data-index="${index}">Update</button>
+                                        <button onclick="removeById(event)" data-id="${item._id}">Remove</button>`;
+                    ulEl.appendChild(li);
+                });
+            } catch (error) {
+                toastr.error("Failed to load todos.");
+            }
+        }
+
+        async function save() {
+            const inputEl = document.getElementById('todoInput');
+            if (inputEl.value.trim() === '') {
+                toastr.error('Please enter a task.');
+                return;
+            }
+            try {
+                await fetch("https://localhost:7201/api/values/save", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ value: inputEl.value })
+                });
+                getAll();
+                inputEl.value = '';
+                toastr.success('Task added successfully');
+            } catch (error) {
+                toastr.error('Failed to save the task');
+            }
+        }
+
+        async function update(event) {
+            const id = event.target.dataset.id;
+            const index = event.target.dataset.index;
+            const inputEl = document.getElementById(`input-${index}`);
+            try {
+                await fetch(`https://localhost:7201/api/values/update`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ _id: id, value: inputEl.value })
+                });
+                getAll();
+                toastr.success('Task updated successfully');
+            } catch (error) {
+                toastr.error('Failed to update the task');
+            }
+        }
+
+        async function removeById(event) {
+            const id = event.target.dataset.id;
+            try {
+                await fetch(`https://localhost:7201/api/values/removeById`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ _id: id })
+                });
+                getAll();
+                toastr.success('Task removed successfully');
+            } catch (error) {
+                toastr.error('Failed to remove the task');
+            }
+        }
+
+        async function seedAndMeasure() {
+            try {
+                const response = await fetch("https://localhost:7201/api/values/seedAndMeasure", {
+                    method: "GET"
+                });
+                const data = await response.json();
+                document.getElementById("measureResult").textContent = `Duration: ${data.duration} ms`;
+                toastr.success("Data seeded and duration measured successfully");
+                getAll();
+            } catch (error) {
+                toastr.error("Failed to perform seed and measure");
+            }
+        }
+
+        async function removeAll() {
+            if (confirm("Are you sure you want to remove all todos?")) {
+                try {
+                await fetch("https://localhost:7201/api/values/removeAll")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok" + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    toastr.success("All todos have been deleted successfully.");
+                    getAll();
+                })
+                .catch(error => {
+                    toastr.error("Error during fetch operation:", error);
+                    alert("Failed to delete todos: " + error.message);
+                });
+                } catch (error) {
+                    toastr.error("Error with delete operation:", error);
+                    alert("Error: " + error.message);
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
