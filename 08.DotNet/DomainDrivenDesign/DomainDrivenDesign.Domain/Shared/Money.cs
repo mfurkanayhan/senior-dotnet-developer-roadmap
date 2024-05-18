@@ -1,10 +1,10 @@
-﻿namespace DomainDrivenDesign.Domain.Products;
+﻿namespace DomainDrivenDesign.Domain.Shared;
 
 public sealed record Money(decimal Amount, Currency Currency)
 {
     public static Money operator +(Money a, Money b)
     {
-        if(a.Currency != b.Currency)
+        if (a.Currency != b.Currency)
         {
             throw new ArgumentException("Currencies with different values cannot be summed.");
         }
