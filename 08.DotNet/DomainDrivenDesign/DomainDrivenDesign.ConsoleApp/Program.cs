@@ -49,6 +49,8 @@ Console.WriteLine($"User1 User2'ye eşit mi?: {result}");
 
 Console.ReadLine();
 */
+
+/*
 public class User
 {
     public int Id { get; set; }
@@ -86,12 +88,20 @@ public class User
     }
 }
 
+*/
 
-
-
+namespace Program
+{
+    public class Program
+    {
+        public static void Main()
+        {
+        }
+    }
+}
 /*
-using System;
 
+using System;
 public class Test2
 {
     public int Value { get; set; }

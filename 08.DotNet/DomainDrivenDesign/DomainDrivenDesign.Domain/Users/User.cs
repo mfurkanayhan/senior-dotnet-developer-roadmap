@@ -5,19 +5,25 @@ namespace DomainDrivenDesign.Domain.Users;
 
 public sealed class User : Entity
 {
-    public User(Name fullName, Email email, Password password, Address address)
+    private User()
+    {
+        
+    }
+    public User(Name fullName, Email email, Password password, Address address, EmailConfirmCode emailConfirmCode)
     {
         FullName = fullName;
         Email = email;
         Password = password;
         Address = address;
+        EmailConfirmCode = emailConfirmCode;
     }
     public Name FullName { get; private set; }
     public Email  Email { get; private set; }
     public Password Password { get; private set; }
     public Address Address { get; private set; }
+    public EmailConfirmCode EmailConfirmCode { get; private set; }
 
-    public static User CreateUser(string fullName, string email, string password, string country, string city, string town, string street, string fullAddress)
+    public static User CreateUser(string fullName, string email, string password, string country, string city, string town, string street, string fullAddress,string emailConfirmCode)
     {
         // Business Rules
 
@@ -25,7 +31,8 @@ public sealed class User : Entity
             fullName: new(fullName),
             email: new(email),
             password: new(password),
-            address: new(country, city, town, street, fullAddress));
+            address: new(country, city, town, street, fullAddress),
+            emailConfirmCode: new(emailConfirmCode));
 
         return user;
     }
@@ -35,3 +42,5 @@ public sealed class User : Entity
         FullName = new(fullName);
     }
 }
+
+public sealed record EmailConfirmCode(string Value);
