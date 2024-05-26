@@ -1,2 +1,3 @@
 - #### [01.NodeJS](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/05.ExploratoryTech/01.NodeJS)
 - #### [02.MongoDb](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/05.ExploratoryTech/02.MongoDB)
+- #### [03.JQuery](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/05.ExploratoryTech/03.JQuery)
