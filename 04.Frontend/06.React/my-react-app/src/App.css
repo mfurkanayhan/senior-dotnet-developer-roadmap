@@ -1,0 +1,26 @@
+/* App.css */
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: calc(10px + 2vmin); /* App-header içindeki metinler için */
+  color: white;
+}
+
+.App-section {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  background-color: white;
+  color: black;
+  font-size: 20px; /* App-section içindeki metinler için */
+}
