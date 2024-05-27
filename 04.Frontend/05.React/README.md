@@ -183,7 +183,8 @@ export default App;
 
 ## Comprehensive Example Code
 
-```jsximport React, { useState } from 'react';
+```jsx
+import React, { useState } from 'react';
 
 function App() {
   const [name, setName] = useState('');
