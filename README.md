@@ -11,4 +11,6 @@ This repository is created to support the career development and roadmap of a so
 
 ## [05.ExploratoryTech](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/05.ExploratoryTech)
 
-## [06.WebAPI - **New!**](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI)
+## [06.WebAPI](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI)
+
+## [07.Angular - **New!**](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular)

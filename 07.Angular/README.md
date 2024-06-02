@@ -55,7 +55,13 @@ ng generate component component-name
 
 This command will create a new component with the specified name in the **\`src/app`** directory.
 
-### Additional Resources
+## Projects
+
+Here are some example projects you can explore to understand and learn more about Angular:
+
+- ### [ExampleSPA](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/ExampleSPA)
+
+## Additional Resources
 For more information about Angular and Angular CLI, you can visit the following resources:
 
 - [Angular Official Website](https://angular.io/)
