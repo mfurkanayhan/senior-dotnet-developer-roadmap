@@ -61,6 +61,8 @@ Here are some example projects you can explore to understand and learn more abou
 
 - ### [ExampleSPA](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/ExampleSPA)
 
+- ### [MyFirstAngularApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/MyFirstAngularApp)
+
 ## Additional Resources
 For more information about Angular and Angular CLI, you can visit the following resources:
 
