@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "work": "John"
+    },
+    {
+      "id": 2,
+      "work": "Jane"
+    },
+    {
+      "id": 3,
+      "work": "Michelle"
+    }
+  ]
+}
