@@ -4,4 +4,4 @@
 
 - #### [03.ExampleWebAPI](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI/ExampleWebAPI)
 
-- #### [04.AccessModifierApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI/04.AccessModifierApp)
+- #### [04.AccessModifierApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI/AccessModifierApp)
