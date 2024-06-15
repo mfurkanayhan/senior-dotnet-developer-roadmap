@@ -10,6 +10,7 @@ function gotoLogin() {
         <h1>Login Page</h1>
         <p>Enter your information to log in</p>
       </div>
+      <form onsubmit="handleLoginSubmit(event)">
       <div class="card-body">
         <div class="form-group">
           <label for="userNameOrEmail">
@@ -45,7 +46,7 @@ function gotoLogin() {
         </div>
       </div>
       <div class="card-header">
-        <button onclick="login()" class="btn btn-dark w-100">
+        <button type="submit" onclick="login()" class="btn btn-dark w-100">
           Log In
         </button>
         <a onclick="gotoRegister()" class="mt-1" style="float: right;">
@@ -56,6 +57,11 @@ function gotoLogin() {
   </div>
 </div>
 `
+}
+
+async function handleLoginSubmit(event) {
+  await event.preventDefault();
+  login();
 }
 
 function gotoRegister() {
