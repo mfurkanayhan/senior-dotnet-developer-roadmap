@@ -71,6 +71,8 @@ Here are some example projects you can explore to understand and learn more abou
 
 - ### [myRoutingApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/myRoutingApp)
 
+- ### [myPersonelApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/myPersonelApp)
+
 ## Additional Resources
 For more information about Angular and Angular CLI, you can visit the following resources:
 
