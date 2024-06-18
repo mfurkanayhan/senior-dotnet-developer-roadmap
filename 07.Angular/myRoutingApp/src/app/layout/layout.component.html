@@ -1,0 +1,26 @@
+<ul>
+    <li>
+        <a routerLink="/"
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: true}"
+        >Home</a>
+    </li>
+    <li>
+        <a routerLink="/about" 
+        routerLinkActive="active">About</a>
+    </li>
+    <li>
+        <a routerLink="/not-found">Not Found</a>
+    </li>
+    <li>
+        <a routerLink="/login">Login</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>
+
+<!--     
+    This code uses Angular's routing system to navigate between pages. Each link has a "routerLink" attribute that directs to a specific route ("/", "/about", "/not-found").
+    "routerLinkActive" and "[routerLinkActiveOptions]" are used to control the active state when a link is clicked. The "routerLinkActive" class specifies the CSS class added when the link is active.
+    "[routerLinkActiveOptions]" ensures that the class is added only when the route exactly matches ("{exact: true}").
+-->
