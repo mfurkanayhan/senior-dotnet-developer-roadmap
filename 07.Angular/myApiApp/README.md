@@ -51,6 +51,8 @@ On the main page, you will see the current personnel information displayed in a 
 ### Main Page
 ![Main Page](src/assets/anasayfa.png)
 
+---
+
 ### Add Personnel Form
 ![Add Personnel Form](src/assets/form.png)
 
