@@ -65,6 +65,8 @@ Here are some example projects you can explore to understand and learn more abou
 
 - ### [MyTodoApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/MyTodoApp)
 
+- ### [myOldApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/myOldApp)
+
 ## Additional Resources
 For more information about Angular and Angular CLI, you can visit the following resources:
 

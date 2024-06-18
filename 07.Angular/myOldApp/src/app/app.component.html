@@ -1,0 +1,24 @@
+<h1>Todo App</h1>
+<div *ngIf="!isUpdateFormActive">
+  <input 
+    type="text" 
+    [(ngModel)]="work" 
+    placeholder="Write me something..">
+
+  <button (click)="save()">Save</button>
+</div>
+<div *ngIf="isUpdateFormActive">
+  <input 
+    type="text" 
+    [(ngModel)]="updateWork">
+  <button (click)="update()">Update</button>
+  <button (click)="cancel()">Cancel</button>
+</div>
+<hr>
+<ul>
+  <li *ngFor="let todo of todos; let i = index"
+  (dblclick)="get(i)">
+    {{todo}}  
+    <button *ngIf="!isUpdateFormActive" (click)="remove(i)">Remove</button>
+  </li>
+</ul>
