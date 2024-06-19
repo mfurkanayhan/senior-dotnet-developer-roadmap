@@ -3,19 +3,18 @@ import { AboutComponent } from './about/about.component';
 
 export const authGuard: CanDeactivateFn<AboutComponent> = (component, currentRoute, currentState, nextState) => {
   /*
-  console.log(currentState); // Mevcut bulunduğu adres
-  console.log(nextState);    // Gitmek istediği adres
+  console.log(currentState); // Current address
+  console.log(nextState);    // Desired address
   return false;
   */
-  const result = confirm("Sayfadan çıkmak istiyor musunuz?");
+  const result = confirm("Do you want to leave the page?");
 
   return result;
 };
 
-// Guard eskiden authentication kontrolü için kullanılıyordu.
-// Angular 16, 17 ile artık kullanılmıyor.
-// Guard'ın kullanılan tek fonksiyonu CanDeactive. O da sayfanın çıkış işlemini kontrol ediyor.
-
+// Guard was previously used for authentication control.
+// With Angular 16 and 17, it is no longer used.
+// The only function used from the Guard is CanDeactivate. It checks the exit process of the page.
 
 // Component
 // Directive

@@ -39,6 +39,18 @@ This project is a simple authentication application built with Angular. It demon
 - **Protected Routes**: The home and about pages are protected by an authentication guard. Only authenticated users can access these pages.
 - **Navigation**: Use the navigation links to switch between the home, about, and login pages.
 
+## Authentication Details
+
+- The authentication guard uses JWT tokens stored in `localStorage` to verify user authentication.
+- Specifically, the token is stored under the name `accessToken`.
+- When a user logs in, an `accessToken` is generated and stored in `localStorage`.
+- To generate a JWT token, you can use online tools such as [jwt.io](https://jwt.io/).
+  - For example, you can create a JWT token by providing a payload and a secret key on the [jwt.io](https://jwt.io/) website.
+  - The generated token can then be used as the `accessToken` in the application.
+- The `AuthService` checks if the `accessToken` is present in `localStorage` and verifies its validity.
+  - If the token is valid, the user is considered authenticated.
+  - If the token is invalid or not present, the user is redirected to the login page.
+
 ## Notes
 
 - The authentication guard uses JWT tokens stored in `localStorage` to verify user authentication.
