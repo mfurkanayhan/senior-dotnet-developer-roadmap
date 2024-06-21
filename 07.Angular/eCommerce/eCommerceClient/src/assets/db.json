@@ -1,0 +1,53 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Apple",
+            "coverImageUrl": "apple.jpg",
+            "price": 100
+        },
+        {
+            "id": 2,
+            "name": "Pear",
+            "coverImageUrl": "pear.jpg",
+            "price": 120
+        },
+        {
+            "id": 3,
+            "name": "Cherry",
+            "coverImageUrl": "cherry.jpg",
+            "price": 200
+        },
+        {
+            "id": 4,
+            "name": "Grape",
+            "coverImageUrl": "grape.jpg",
+            "price": 300
+        }
+    ],
+
+    "carts": [
+        {
+            "id": 1,
+            "productId": 1,
+            "product": {
+                "id": 1,
+                "name": "Apple",
+                "coverImageUrl": "apple.jpg",
+                "price": 100
+            },
+            "quantity": 1
+        },
+        {
+            "id": 2,
+            "productId": 3,
+            "product": {
+                "id": 3,
+                "name": "Cherry",
+                "coverImageUrl": "cherry.jpg",
+                "price": 200
+            },
+            "quantity": 1
+        }
+    ]
+}
