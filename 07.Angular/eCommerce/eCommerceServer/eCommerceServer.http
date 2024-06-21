@@ -1,0 +1,16 @@
+@eCommerceServer_HostAddress = http://localhost:5222
+
+POST http://localhost:5222/api/Auth/Login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "string@string.com",
+  "password": "stringasBd123"
+}
+###
+
+GET {{eCommerceServer_HostAddress}}/api/Products/GetAll
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InN0cmluZ0BzdHJpbmcuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6InN0ciBpbmciLCJuYmYiOjE3MDU2OTM2MDYsImV4cCI6MTcwNTY5NDgwNiwiaXNzIjoiRnVya2FuIEF5aGFuIiwiYXVkIjoibG9jYWxob3N0OjQyMDAifQ.76sph4n4OJ0UdTrKp06kcwh3n5jkDDPMaSGYPK6lo1RzG9Ds-C-g01bGsRvR9kVXVemgiMrttqqG_Ixo2bh4cQ
+###
