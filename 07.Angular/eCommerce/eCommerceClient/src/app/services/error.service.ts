@@ -6,6 +6,7 @@ import { MessageService } from "primeng/api";
   providedIn: 'root'
 })
 export class ErrorService {
+  
   constructor(
     private primeng: MessageService
   ) {}

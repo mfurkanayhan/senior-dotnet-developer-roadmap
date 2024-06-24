@@ -5,12 +5,20 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "string@string.com",
-  "password": "stringasBd123"
+  "email": "mfurkanayhan@gmail.com",
+  "password": "Password1234"
 }
+
 ###
 
-GET {{eCommerceServer_HostAddress}}/api/Products/GetAll
+GET https://localhost:7194/api/ShoppingCarts/GetAll
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InN0cmluZ0BzdHJpbmcuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6InN0ciBpbmciLCJuYmYiOjE3MDU2OTM2MDYsImV4cCI6MTcwNTY5NDgwNiwiaXNzIjoiRnVya2FuIEF5aGFuIiwiYXVkIjoibG9jYWxob3N0OjQyMDAifQ.76sph4n4OJ0UdTrKp06kcwh3n5jkDDPMaSGYPK6lo1RzG9Ds-C-g01bGsRvR9kVXVemgiMrttqqG_Ixo2bh4cQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI0IiwiRW1haWwiOiJ0YW5lcnNheWRhbUBnbWFpbC5jb20iLCJOYW1lIjoiVGFuZXIgU2F5ZGFtIiwibmJmIjoxNzA0Mzg4Nzk0LCJleHAiOjE3MDcwNjcxOTQsImlzcyI6IlRhbmVyIFNheWRhbSIsImF1ZCI6ImxvY2FsaG9zdDo0MjAwIn0.QL0wkq7N58ZhOzgY085Z9kdLe16UQkuClbW_GGh4sVW91B18EGJfuArqvkp4xNPoGAxkePsWM5PJ2_BqQMhN5Q
+
+###
+
+GET https://localhost:7194/api/Orders/GetAll
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI0IiwiRW1haWwiOiJ0YW5lcnNheWRhbUBnbWFpbC5jb20iLCJOYW1lIjoiVGFuZXIgU2F5ZGFtIiwibmJmIjoxNzA0Mzg4Nzk0LCJleHAiOjE3MDcwNjcxOTQsImlzcyI6IlRhbmVyIFNheWRhbSIsImF1ZCI6ImxvY2FsaG9zdDo0MjAwIn0.QL0wkq7N58ZhOzgY085Z9kdLe16UQkuClbW_GGh4sVW91B18EGJfuArqvkp4xNPoGAxkePsWM5PJ2_BqQMhN5Q
+
 ###

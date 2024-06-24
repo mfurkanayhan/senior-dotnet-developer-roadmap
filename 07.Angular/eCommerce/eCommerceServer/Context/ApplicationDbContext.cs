@@ -23,6 +23,10 @@ public sealed class ApplicationDbContext : DbContext
         modelBuilder.Entity<Product>().Property(p => p.Price).HasColumnType("money");
         modelBuilder.Entity<Product>().HasIndex(x => x.Name).IsUnique();
 
+        modelBuilder.Entity<OrderDetail>()
+            .Property(p => p.Price)
+            .HasColumnType("decimal(18,2)");
+
         List<Product> products = new();
         Product product1 = new()
         {

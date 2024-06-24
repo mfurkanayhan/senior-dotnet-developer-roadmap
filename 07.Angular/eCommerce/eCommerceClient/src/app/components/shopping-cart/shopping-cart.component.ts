@@ -5,11 +5,17 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { AuthService } from '../../services/auth.service';
 import { api } from '../../constants/api';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
+import { ErrorService } from '../../services/error.service';
+import { MessageService } from 'primeng/api';
+import { SwalService } from '../../services/swal.service'
+
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [TrCurrencyPipe],
+  imports: [TrCurrencyPipe, ToastModule, ButtonModule],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css'
 })
@@ -20,7 +26,11 @@ export class ShoppingCartComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthService,
-    public _cart: ShoppingCartService
+    public _cart: ShoppingCartService,
+
+    private swal: SwalService,
+    private error: ErrorService,
+    private primeng: MessageService
   ) {} //yapıcı metot => class çağrıldığı esnada ilk çalışan metot
 
   ngOnInit(): void { }

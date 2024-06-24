@@ -49,11 +49,14 @@ var app = builder.Build();
 // Development -> Test -> Production
 
 // Swagger'ý sadece "Development" aþamasýnda göster diyor.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors();
 

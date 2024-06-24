@@ -3,25 +3,25 @@
         {
             "id": 1,
             "name": "Apple",
-            "coverImageUrl": "apple.jpg",
+            "coverImageUrl": "apple.png",
             "price": 100
         },
         {
             "id": 2,
             "name": "Pear",
-            "coverImageUrl": "pear.jpg",
+            "coverImageUrl": "pear.png",
             "price": 120
         },
         {
             "id": 3,
             "name": "Cherry",
-            "coverImageUrl": "cherry.jpg",
+            "coverImageUrl": "cherry.png",
             "price": 200
         },
         {
             "id": 4,
             "name": "Grape",
-            "coverImageUrl": "grape.jpg",
+            "coverImageUrl": "grape.png",
             "price": 300
         }
     ],
@@ -33,7 +33,7 @@
             "product": {
                 "id": 1,
                 "name": "Apple",
-                "coverImageUrl": "apple.jpg",
+                "coverImageUrl": "apple.png",
                 "price": 100
             },
             "quantity": 1
@@ -44,7 +44,7 @@
             "product": {
                 "id": 3,
                 "name": "Cherry",
-                "coverImageUrl": "cherry.jpg",
+                "coverImageUrl": "cherry.png",
                 "price": 200
             },
             "quantity": 1

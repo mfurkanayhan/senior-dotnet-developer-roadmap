@@ -1,9 +1,8 @@
-﻿using eCommerceServer.Context;
-using eCommerceServer.Models;
+﻿using eCommerceServer.Models;
+using eCommerceServer.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace eCommerceServer.Controllers;
 [Route("api/[controller]/[action]")]
@@ -11,7 +10,13 @@ namespace eCommerceServer.Controllers;
 [Authorize(AuthenticationSchemes = "Bearer")]
 public sealed class ShoppingCartsController : ControllerBase
 {
-    ApplicationDbContext context = new();
+    private ShoppingCartRepository shoppingCartRepository;
+    private OrderRepository orderRepository;
+    public ShoppingCartsController()
+    {
+        shoppingCartRepository = new();
+        orderRepository = new();
+    }
 
     [HttpGet]    
     public IActionResult GetAll()
@@ -19,7 +24,7 @@ public sealed class ShoppingCartsController : ControllerBase
         string userIdString = User.Claims.Single(s => s.Type == "UserId").Value;
         int userId = int.Parse(userIdString);
 
-        List<ShoppingCart> carts = context.ShoppingCarts.Where(p=> p.UserId == userId).Include(p=> p.Product).ToList();
+        IEnumerable<ShoppingCart> carts = shoppingCartRepository.GetAllByUserId(userId);
 
         return Ok(carts);
     }
@@ -30,7 +35,7 @@ public sealed class ShoppingCartsController : ControllerBase
         string userIdString = User.Claims.Single(s => s.Type == "UserId").Value;
         int userId = int.Parse(userIdString);
 
-        ShoppingCart? shoppingCart = context.ShoppingCarts.Where(p => p.UserId == userId && p.ProductId == productId).FirstOrDefault();
+        ShoppingCart? shoppingCart = shoppingCartRepository.GetByUserIdAndProductId(userId, productId);
 
         if (shoppingCart is null) 
         {
@@ -40,14 +45,13 @@ public sealed class ShoppingCartsController : ControllerBase
                 UserId = userId,
                 Quantity = 1
             };
-            context.Add(shoppingCart);
+            shoppingCartRepository.Add(shoppingCart);
         }
         else
         {
             shoppingCart.Quantity++;
+            shoppingCartRepository.Update(shoppingCart);
         }
-
-        context.SaveChanges();
 
         return NoContent();
     }
@@ -58,16 +62,20 @@ public sealed class ShoppingCartsController : ControllerBase
         string userIdString = User.Claims.Single(s => s.Type == "UserId").Value;
         int userId = int.Parse(userIdString);
 
-        ShoppingCart? shoppingCart = context.ShoppingCarts.Where(p => p.UserId == userId && p.ProductId == productId).FirstOrDefault();
+        ShoppingCart? shoppingCart = shoppingCartRepository.GetByUserIdAndProductId(userId, productId);
 
         if (shoppingCart is not null)
         {
             shoppingCart.Quantity--;
+
             if (shoppingCart.Quantity == 0) 
             {
-                context.Remove(shoppingCart);
+                shoppingCartRepository.Remove(shoppingCart);
             }
-            context.SaveChanges();
+            else
+            {
+                shoppingCartRepository.Update(shoppingCart);
+            }
         }
 
         return NoContent();
@@ -76,11 +84,11 @@ public sealed class ShoppingCartsController : ControllerBase
     [HttpGet]
     public IActionResult RemoveById(int id)
     {
-        ShoppingCart? shoppingCart = context.ShoppingCarts.Find(id);
+        ShoppingCart? shoppingCart = shoppingCartRepository.GetById(id);
+
         if (shoppingCart is not null)
         {
-            context.Remove(shoppingCart);
-            context.SaveChanges();
+            shoppingCartRepository.Remove(shoppingCart);
         }
 
         return NoContent();
@@ -92,7 +100,7 @@ public sealed class ShoppingCartsController : ControllerBase
         string userIdString = User.Claims.Single(s => s.Type == "UserId").Value;
         int userId = int.Parse(userIdString);
 
-        List<ShoppingCart> carts = context.ShoppingCarts.Where(p => p.UserId == userId).Include(p => p.Product).ToList();
+        IEnumerable<ShoppingCart> carts = shoppingCartRepository.GetAllByUserId(userId);
 
         Order order = new()
         {
@@ -117,11 +125,9 @@ public sealed class ShoppingCartsController : ControllerBase
 
         order.Details = details;
 
-        context.Add(order);
-        context.RemoveRange(carts);
+        orderRepository.Add(order);
+        shoppingCartRepository.RemoveRange(carts);
 
-        context.SaveChanges();
-        
         return NoContent();
     }
 }

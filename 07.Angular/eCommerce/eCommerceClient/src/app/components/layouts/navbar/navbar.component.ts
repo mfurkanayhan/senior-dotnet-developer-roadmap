@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
+import { HttpContext } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
