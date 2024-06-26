@@ -23,20 +23,20 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new()
     {
-        // Token'da kontrol edilmesini istediðimiz deðerler..
+        // Values we want to validate in the token..
 
-        ValidateIssuer = true, // Issuer deðerinin kontrol edilmesini, eðer gönderilen Token'daki Issuer deðeri yanlýþsa hata vermesini saðlamak için burayý "true" yapýyoruz.
+        ValidateIssuer = true, // This is set to "true" to ensure that the Issuer value in the token is checked, and if it is incorrect, it will throw an error.
 
-        ValidateAudience = true, // Audience deðerinin kontrol edilmesini saðlýyoruz.
+        ValidateAudience = true, // This ensures that the Audience value is checked.
 
-        ValidateLifetime = true, // Expire süresinin kontrol edilmesini istersek, yani süresi dolmuþ Token'larýn çalýþmamasýný istersek "ValidateLifetime" deðerini "True" yapýyoruz. Eðer sýnýrsýz çalýþan bir Token oluþturmak istersek bu deðeri "False" yapabiliriz.
+        ValidateLifetime = true, // This is set to "true" if we want to check the expiration time and ensure that expired tokens do not work. If we want to create a token that works indefinitely, this value can be set to "false".
 
-        ValidateIssuerSigningKey = true, // Oluþturacaðýmýz güvenlik anahtarýnýn kontrol edilip edilmeyeceðini bu seçenekle belirleriz.
-        
-        // Ardýndan bu alanlarýn "Default" deðerlerini belirleriz.
-        ValidIssuer = builder.Configuration.GetSection("Jwt:Issuer").Value, // Bu deðer Token'ý oluþtururken verdiðimiz deðer ile (mutlaka) ayný olmalý.
+        ValidateIssuerSigningKey = true, // This option determines whether to check the security key that we will create.
 
-        ValidAudience = builder.Configuration.GetSection("Jwt:Audience").Value, // 
+        // Then we set the "Default" values for these fields.
+        ValidIssuer = builder.Configuration.GetSection("Jwt:Issuer").Value, // This value must be the same as the value we gave when creating the token.
+
+        ValidAudience = builder.Configuration.GetSection("Jwt:Audience").Value, // This value must match the audience value set when the token was created.
 
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Jwt:SecretKey").Value ?? ""))
     };
@@ -45,15 +45,15 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
 // Middleware
 var app = builder.Build();
 
-// Proje 3 aþamadan oluþur.
+// The project consists of 3 stages:
 // Development -> Test -> Production
 
-// Swagger'ý sadece "Development" aþamasýnda göster diyor.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
+// To show Swagger only in the "Development" stage:
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
 
 app.UseSwagger();
 app.UseSwaggerUI();

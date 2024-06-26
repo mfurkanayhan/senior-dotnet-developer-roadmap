@@ -21,8 +21,15 @@ export class ShoppingCartService {
     private swal: SwalService,
     private primeng: MessageService,
     private error: ErrorService) {
-      this.getAll();
-    }
+
+    this.auth.currentUser.subscribe(user => {
+      if (user) {
+        this.getAll();
+      } else {
+        this.clearCart();
+      }
+    });
+  }
 
   getAll() {
     this.http.get(`${api}/ShoppingCarts/GetAll`, {
@@ -30,57 +37,61 @@ export class ShoppingCartService {
         "Authorization": "Bearer " + this.auth.token
       }
     })
-    .subscribe({
-      next: ((res: any) => {
-        this.carts = res;
-        this.calculateSum();
-      }),
-      error: (err: HttpErrorResponse) => {
-        console.log(err);
-      }
-    })
+      .subscribe({
+        next: (res: any) => {
+          this.carts = res;
+          this.calculateSum();
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+        }
+      });
   }
 
-  calculateSum(){
+  calculateSum() {
     this.sum = 0;
-    for(const cart of this.carts){
+    for (const cart of this.carts) {
       this.sum += cart.quantity * cart.product.price;
     }
   }
 
-  increment(productId: number){
+  clearCart() {
+    this.carts = [];
+    this.sum = 0;
+  }
+
+  increment(productId: number) {
     this.http.get(`${api}/ShoppingCarts/Increment?productId=${productId}`, {
       headers: {
         "Authorization": "Bearer " + this.auth.token
       }
     })
-    .subscribe({
-      next: ()=> {
-        this.getAll();
-
-        this.primeng.add({severity: "success", summary: "Başarılı", detail: "Ürün sepete başarıyla eklendi"});
-        //this.swal.toast('Ürün sepete başarıyla eklendi')
-      },
-      error: (err: HttpErrorResponse)=> {
-        this.error.errorHandler(err)
-      }
-    })
+      .subscribe({
+        next: () => {
+          this.getAll();
+          this.primeng.add({ severity: "success", summary: "Success", detail: "Product added to cart successfully" });
+        },
+        error: (err: HttpErrorResponse) => {
+          this.error.errorHandler(err);
+        }
+      });
   }
 
-  decrement(productId: number){
+  decrement(productId: number) {
     this.http.get(`${api}/ShoppingCarts/Decrement?productId=${productId}`, {
       headers: {
         "Authorization": "Bearer " + this.auth.token
       }
     })
-    .subscribe({
-      next: ()=> {
-        this.getAll();
-
-        this.primeng.add({severity: "warn", summary: "Başarılı", detail: "Ürün sepetten başarıyla silindi"});
-        this.swal.toast('Ürün sepetten başarıyla silindi', 'info')
-      },
-      error: (err: HttpErrorResponse)=> this.error.errorHandler(err)
-    })
+      .subscribe({
+        next: () => {
+          this.getAll();
+          this.primeng.add({ severity: "warn", summary: "Success", detail: "Product removed from cart successfully" });
+          //this.swal.toast('Product removed from cart successfully', 'info');
+        },
+        error: (err: HttpErrorResponse) => {
+          this.error.errorHandler(err);
+        }
+      });
   }
 }

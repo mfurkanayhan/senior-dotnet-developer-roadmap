@@ -31,13 +31,13 @@ export class ShoppingCartComponent implements OnInit {
     private swal: SwalService,
     private error: ErrorService,
     private primeng: MessageService
-  ) {} //yapıcı metot => class çağrıldığı esnada ilk çalışan metot
+  ) {} // Constructor Method => The first method that runs when the class is called
 
   ngOnInit(): void { }
 
   decrement(cart: ShoppingCartModel) {
     if (cart.quantity === 1) {
-      const response = confirm("Ürünü sepetten kaldırmak istiyor musunuz?")
+      const response = confirm("Do you want to remove the item from the cart?")
       if (response) {
         this._cart.decrement(cart.productId);
       }
@@ -47,7 +47,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   remove(id: number) {
-    const response = confirm("Ürünü sepetten kaldırmak istiyor musunuz?")
+    const response = confirm("Do you want to remove the item from the cart?")
     if (response) {
       this.http.get(`${api}/ShoppingCarts/RemoveById?id=${id}`, {
         headers: {
@@ -66,7 +66,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   pay(){
-    const response = confirm("Ödeme yapmak istiyor musunuz?");
+    const response = confirm("Do you want to make the payment?");
     if(response){
       this.http.get(`${api}/ShoppingCarts/Pay`, {
         headers: {

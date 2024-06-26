@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TrCurrencyPipe } from 'tr-currency';
 import { AuthService } from '../../services/auth.service';
 import { ProductModel } from '../../models/product.model';
@@ -15,7 +15,7 @@ import { ErrorService } from '../../services/error.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   products: ProductModel[] = [];
   isAuthenticated: boolean = false;
 
@@ -26,8 +26,16 @@ export class HomeComponent {
     private error: ErrorService) {
       this.isAuthenticated = this.auth.isAuthenticated();
 
-      this.getAllProduct();
+      // this.getAllProduct();
     }
+  
+  ngOnInit(): void {
+    this.auth.currentUser.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
+
+    this.getAllProduct();
+  }
 
 
   getAllProduct(){

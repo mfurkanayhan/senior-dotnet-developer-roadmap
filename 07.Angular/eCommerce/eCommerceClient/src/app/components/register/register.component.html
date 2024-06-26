@@ -1,11 +1,11 @@
-<title>E Commerce | Kayıt Sayfası</title>
+<title>E Commerce | Registration Page</title>
 
 <div class="d-flex justify-content-center align-items-center" style="height: 82vh;">
     <div class="col-4">
         <div class="card">
             <div class="card-header">
-                <h1>Kayıt Sayfası</h1>
-                <p>Kayıt olmak için bilgilerinizi doldurun</p>
+                <h1>Registration Page</h1>
+                <p>Please fill in your details to register</p>
             </div>
             <form #registerForm="ngForm" autocomplete="off" (ngSubmit)="signUp(registerForm)">
                 <div class="card-body">
@@ -28,8 +28,8 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <button class="btn btn-danger w-100" [disabled]="!registerForm.valid">Kayıt Ol</button>
-                        <a routerLink="/login">Zaten hesabınız var mı? Buraya tıklayarak giriş yapabilirsiniz..
+                        <button class="btn btn-danger w-100" [disabled]="!registerForm.valid">Register</button>
+                        <a routerLink="/login">Already have an account? Click here to log in..
                         </a>
                     </div>
                 </div>
@@ -37,4 +37,3 @@
         </div>
     </div>
 </div>
-<!-- 01:59:15 | 21 Aralık -->

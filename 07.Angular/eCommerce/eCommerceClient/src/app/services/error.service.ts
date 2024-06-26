@@ -16,20 +16,20 @@ export class ErrorService {
 
     switch (err.status) {
       case 0:
-        this.primeng.add({ severity: "warn", detail: "API çalışmıyor", summary: "Hata!"});
+        this.primeng.add({ severity: "warn", detail: "API is not working", summary: "Error!"});
         break;
       
       case 400:
-        this.primeng.add({ severity: "warn", detail: err.error.message, summary: "Hata!"});
+        this.primeng.add({ severity: "warn", detail: err.error.message, summary: "Error!"});
         break;
 
       case 404:
-        this.primeng.add({ severity: "warn", detail: "API adresi bulunamadı", summary: "Hata!"});
+        this.primeng.add({ severity: "warn", detail: "API address not found", summary: "Error!"});
         break;
 
       case 422:
         for(const e of err.error){
-          this.primeng.add({ severity: "warn", detail: e, summary: "Validation Hatası!"});
+          this.primeng.add({ severity: "warn", detail: e, summary: "Validation Error!"});
         }
         break;
     }

@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Azure.Core;
-using eCommerceServer.Context;
 using eCommerceServer.DTOs;
 using eCommerceServer.Models;
 using eCommerceServer.Repositories;
@@ -27,8 +25,8 @@ public sealed class AuthController : ControllerBase
     [HttpPost]
     public IActionResult Register(RegisterDto request)
     {
-        // İş Kuralları
-        // Validation Kontrolü
+        // Business Rules
+        // Validation Check
         RegisterDtoValidator validator = new();
         ValidationResult result = validator.Validate(request);
         if (!result.IsValid)
@@ -37,17 +35,17 @@ public sealed class AuthController : ControllerBase
             return StatusCode(422, errorMessages);
         }
 
-        // Kaydın Unique Kontrolü
+        // Unique Record Check
         bool isEmailExist = appUserRepository.IsEmailExists(request.Email);
         if (isEmailExist)
         {
-            return BadRequest(new { Message = "Email adresi daha önce kaydedilmiş!" });
+            return BadRequest(new { Message = "Email address already registered!" });
         }
 
-        // Objenin Oluşturulması
+        // Object Creation
         AppUser appUser = _mapper.Map<AppUser>(request);
 
-        // Database Kaydının Yapılması
+        // Database Record Creation
         appUserRepository.Add(appUser);
 
         return NoContent();
@@ -57,7 +55,7 @@ public sealed class AuthController : ControllerBase
 
     public IActionResult Login(LoginDto request)
     {
-        //Validation Kontrolü
+        // Validation Check
         LoginDtoValidator validator = new();
         ValidationResult result = validator.Validate(request);
 
@@ -67,15 +65,15 @@ public sealed class AuthController : ControllerBase
             return StatusCode(422, errorMessages);
         }
 
-        // User Kontrolü
+        // User Check
         AppUser? user = appUserRepository.Login(request.Email, request.Password);
 
         if (user is null)
         {
-            return BadRequest(new { Message = "Kullanıcı bulunamadı"});
+            return BadRequest(new { Message = "User not found" });
         }
 
-        // Token - JWT ile token Üreteceğiz
+        // Token - We will generate token with JWT
         JwtProvider jwtProvider = new(_configuration);
         string token = jwtProvider.CreateToken(user);
 

@@ -1,10 +1,10 @@
-<title>E Commerce | Sepetim</title>
+<title>E Commerce | My Cart</title>
 <div class="d-flex justify-content-between mt-2">
-    <h5>Ana Sayfa</h5>
+    <h5>Home</h5>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item" aria-current="page">Ana Sayfa</li>
-            <li class="breadcrumb-item active" aria-current="page">Sepetim</li>
+            <li class="breadcrumb-item" aria-current="page">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">My Cart</li>
         </ol>
     </nav>
 </div>
@@ -47,7 +47,7 @@
                 <div class="card-body">
                     <button class="btn btn-dark w-100" (click)="pay()">
                         <i class="fa-solid fa-credit-card me-1"></i>
-                        Ödeme Yap
+                        Make Payment
                     </button>
                 </div>
             </div>
@@ -56,21 +56,6 @@
 }
 @else {
     <h1 class="alert alert-danger text-danger">
-        Sepette ürün bulunamadı!
+        No items found in the cart!
     </h1>
 }
-
-<!-- 
-<p-toast position="bottom-center" key="confirm" [baseZIndex]="5000">
-    <ng-template let-message pTemplate="message">
-        <div class="flex flex-column align-items-start" style="flex: 1">
-            <div class="flex align-items-center gap-2">                    
-            </div>
-            <div class="font-medium text-lg my-3 text-900">{{ message.summary }}</div>                
-            <div class="d-flex justify-content-between">
-                <p-button class="p-button-sm" label="Sil"></p-button>
-                <p-button class="p-button-sm" label="Vazgeç" severity="danger"></p-button>
-            </div>
-        </div>
-    </ng-template>
-</p-toast> -->

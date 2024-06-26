@@ -1,11 +1,11 @@
-<title>E Commerce | Giriş Sayfası</title>
+<title>E Commerce | Login Page</title>
 
 <div class="d-flex justify-content-center align-items-center" style="height: 82vh;">
     <div class="col-4">
         <div class="card">
             <div class="card-header">
-                <h1>Giriş Sayfası</h1>
-                <p>Giriş yapmak için bilgilerinizi doldurun</p>
+                <h1>Login Page</h1>
+                <p>Please fill in your details to log in</p>
             </div>
             <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="signIn(loginForm)">
                 <div class="card-body">
@@ -20,8 +20,8 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <button class="btn btn-dark w-100" [disabled]="!loginForm.valid">Giriş Yap</button>
-                        <a routerLink="/register">Hesabınız yok mu? Buraya tıklayarak ücretsiz kayıt olabilirsiniz..
+                        <button class="btn btn-dark w-100" [disabled]="!loginForm.valid">Log In</button>
+                        <a routerLink="/register">Don't have an account? Click here to register for free..
                         </a>
                     </div>
                 </div>

@@ -23,9 +23,9 @@ export class SwalService {
       title: title,
       html: text,
       showCancelButton: true,
-      cancelButtonText: "Vazgeç",
+      cancelButtonText: "Cancel",
       showConfirmButton: true,
-      confirmButtonText: "confirmButtonText",
+      confirmButtonText: "Confirm",
       icon: icon
     }).then(res => {
       if (res.isConfirmed) {
