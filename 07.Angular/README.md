@@ -85,6 +85,8 @@ Here are some example projects you can explore to understand and learn more abou
 
 - ### [eCommerce](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/eCommerce)
 
+- ### [AppModule](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular/app_module)
+
 ## Additional Resources
 For more information about Angular and Angular CLI, you can visit the following resources:
 
