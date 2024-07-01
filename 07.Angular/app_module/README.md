@@ -1,6 +1,6 @@
 # AppModule
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+This project is a basic Angular web application that demonstrates the use of components, directives, and event handling. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
 ## Development server
 
