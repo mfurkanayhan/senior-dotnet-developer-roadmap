@@ -105,11 +105,11 @@ public class PersonnelsController : ControllerBase
     [HttpPost]
     public IActionResult FileMethod(List<IFormFile> file)
     {
-        // Fiziki bir klasöre kaydedebilirsiniz.
-        // FTP'ye kaydedebilirsiniz
-        // Byte'a çevirip metin olarak saklarız.
-        // Cloud'a kaydedebiliriz.
-        // Bir yükleme sitesine API ya da kütüphane aracılığı ile yükleyip onun linkini saklayabiliriz.
+        // Can be saved to a physical folder.
+        // Can be uploaded to FTP.
+        // Convert to bytes and store as text.
+        // Can be saved to the cloud.
+        // Can upload through an API or library to a hosting site and save the link.
 
         foreach (var f in file)
         {
@@ -126,7 +126,7 @@ public class PersonnelsController : ControllerBase
                 fileStream.Write(bytes, 0, bytes.Length);
             }
 
-            // FileStream stream = System.IO.File.Create("wwwroot/deneme.jpg");
+            // FileStream stream = System.IO.File.Create("wwwroot/test.jpg");
             // f.CopyTo(stream);
         }
 
