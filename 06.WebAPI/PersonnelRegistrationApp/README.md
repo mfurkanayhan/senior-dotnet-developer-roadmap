@@ -28,7 +28,7 @@ To run the project, the following tools must be installed:
 
 2. Navigate to the `PersonnelRegistrationApp.WebAPI` directory:
     ```sh
-    cd .\06.WebAPI\PersonnelRegistrationApp\
+    cd .\06.WebAPI\PersonnelRegistrationApp\PersonnelRegistrationApp.WebAPI
     ```
 
 3. Restore dependencies and build the project:
