@@ -1,6 +1,6 @@
-# PersonnelRegistrationApp.WebAPI
+# PersonnelRegistrationApp
 
-PersonnelRegistrationApp.WebAPI is a simple RESTful API that manages personnel records. Developed with .NET 5, this project includes basic CRUD functionalities.
+PersonnelRegistrationApp is a simple RESTful API that manages personnel records. Developed with .NET 8, this project includes basic CRUD functionalities.
 
 ## Features
 
@@ -59,4 +59,3 @@ The primary endpoints of the API include:
 For detailed information and testing capabilities for each endpoint, run the project and use the Swagger UI interface.
 
 For a better understanding of the project, refer to the project files.
-
