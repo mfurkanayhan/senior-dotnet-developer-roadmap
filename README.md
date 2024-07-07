@@ -15,4 +15,6 @@ This repository is created to support the career development and roadmap of a so
 
 ## [07.Angular](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/07.Angular)
 
-## [08.DotNet - **New!**](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/08.DotNet)
+## [08.DotNet](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/08.DotNet)
+
+## [09.Projects - **New!**](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/09.Projects)
