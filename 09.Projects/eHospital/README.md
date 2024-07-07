@@ -1,4 +1,4 @@
-# eHospital Management System
+# eHospital
 
 ## Overview
 eHospital offers a comprehensive patient management and appointment system for hospitals. This system enables both doctors and patients to manage their appointments effectively. Thanks to the user-friendly interface developed with Angular, doctors and hospital administrators can easily perform all operations.
