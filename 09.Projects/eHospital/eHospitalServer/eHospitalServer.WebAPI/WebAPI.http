@@ -1,0 +1,23 @@
+@eHospitalServer.WebAPI_HostAddress = http://localhost:5012
+
+GET https://localhost:7099/api/Auth/Get
+Accept: application/json
+Authorization: Bearer 
+
+###
+
+POST https://localhost:7099/api/Auth/Login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "emailOrUserName": "admin",
+  "password": "1"
+}
+
+###
+
+GET https://localhost:7099/api/Auth/GetTokenByRefreshToken?refreshToken=ed9f24ba-5449-40b5-98d7-8f96a65b0154
+Accept: application/json
+
+###
