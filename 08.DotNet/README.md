@@ -8,3 +8,5 @@
 - #### [ExceptionHandler](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/08.DotNet/ExceptionHandler)
 
 - #### [NTierArchitecture](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/08.DotNet/NTierArchitecture)
+
+- #### [RabbitMQ](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/08.DotNet/RabbitMQ)
