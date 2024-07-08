@@ -14,6 +14,7 @@ public sealed class SeedDataController(
 {
     public async Task<IActionResult> Seed(CancellationToken cancellationToken)
     {
+        /*
         List<Blog> blogs = new();
         for (int i = 0; i < 5; i++)
         {
@@ -32,10 +33,11 @@ public sealed class SeedDataController(
         }
 
         await blogRepository.AddRangeAsync(blogs, cancellationToken);
+        */
 
         List<Subscribe> subscribes = new();
 
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < 10; i++)
         {
             Faker faker = new();
 

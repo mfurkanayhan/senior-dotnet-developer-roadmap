@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Newsletter.Application.Features.Blogs.ChangeStatus;
 using Newsletter.Application.Features.Blogs.Create;
 using Newsletter.Application.Features.Blogs.GetAllBlog;
 
@@ -22,5 +23,12 @@ public class NewslettersController(IMediator mediator) : Controller
     {
         var response = await mediator.Send(request);
         return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public async Task<JsonResult> ChangeStatus(Guid id)
+    {
+        var response = await mediator.Send(new ChangeStatusCommand(id));
+        return Json(response);
     }
 }

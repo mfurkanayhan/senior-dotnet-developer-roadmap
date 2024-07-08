@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using MFA.Result;
+using Microsoft.EntityFrameworkCore;
 using Newsletter.Domain.Entities;
 using Newsletter.Domain.Repositories;
 
@@ -20,4 +21,3 @@ internal sealed class GetAllBlogQueryHandler
     }
 
 }
-

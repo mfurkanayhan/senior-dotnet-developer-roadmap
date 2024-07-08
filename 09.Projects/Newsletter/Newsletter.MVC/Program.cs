@@ -2,12 +2,13 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Newsletter.Application;
 using Newsletter.Domain.Entities;
+using Newsletter.Domain.Utilities;
 using Newsletter.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -18,10 +19,13 @@ builder.Services
     configure.Cookie.Name = "Newsletter.Auth";
     configure.LoginPath = "/Auth/Login";
     configure.LoginPath = "/Auth/Login";
+    configure.AccessDeniedPath = "/Auth/Login";
 });
 builder.Services.AddAuthorization();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.CreateServiceTool();
 
 var app = builder.Build();
 
@@ -35,6 +39,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 using (var scoped = app.Services.CreateScope())
 {

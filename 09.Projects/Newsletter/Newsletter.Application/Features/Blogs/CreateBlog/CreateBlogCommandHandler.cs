@@ -3,6 +3,7 @@ using GenericRepository;
 using MediatR;
 using Newsletter.Application.Extensions;
 using Newsletter.Domain.Entities;
+using Newsletter.Domain.Events;
 using Newsletter.Domain.Repositories;
 using MFA.Result;
 
@@ -29,6 +30,4 @@ internal sealed class CreateBlogCommandHandler(
 
         return "Blog create is successful";
     }
-
-    
 }

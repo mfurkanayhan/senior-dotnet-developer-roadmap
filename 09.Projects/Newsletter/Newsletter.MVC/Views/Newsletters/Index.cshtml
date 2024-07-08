@@ -38,12 +38,21 @@
                     <p>
                         @if (blog.IsPublish)
                         {
+                            <input type="checkbox" onchange="changeStatus('@blog.Id')" checked />
+                        }else
+                        {
+                            <input type="checkbox" onchange="changeStatus('@blog.Id')"  />
+                        }
+
+                        @* @if (blog.IsPublish)
+                        {
                             <span class="alert alert-success" style="font-size:small">Published</span>
                             <span class="ms-2" style="font-size:small">Publish Date: @blog.PublishDate</span>
                         }else
                         {
                             <span class="text-danger" style="font-size:small">Not Published</span>
-                        }
+                        } *@
+
                     </p>
                 </div>
             </div>
@@ -57,5 +66,12 @@
             const value = event.target.search;
             window.location.href = "/Newsletter/Index?search=" + value;
         }
+    }
+
+    function changeStatus(id) {
+        fetch("/Newsletter/ChangeStatus?id=" + id)
+        .then(()=> {
+            document.location.reload();
+        });
     }
 </script>

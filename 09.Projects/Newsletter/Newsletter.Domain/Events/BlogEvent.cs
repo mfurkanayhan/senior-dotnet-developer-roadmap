@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Newsletter.Application.Features.Blogs.Create;
+namespace Newsletter.Domain.Events;
 
 public sealed record BlogEvent(
     Guid BlogId) : INotification;
