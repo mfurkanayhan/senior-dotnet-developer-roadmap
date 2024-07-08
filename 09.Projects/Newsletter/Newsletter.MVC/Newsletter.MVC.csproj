@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>58320eda-a64b-493d-b82b-1d36374e87b9</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="35.5.1" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="171.30.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Newsletter.Application\Newsletter.Application.csproj" />
+    <ProjectReference Include="..\Newsletter.Domain\Newsletter.Domain.csproj" />
+    <ProjectReference Include="..\Newsletter.Infrastructure\Newsletter.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
