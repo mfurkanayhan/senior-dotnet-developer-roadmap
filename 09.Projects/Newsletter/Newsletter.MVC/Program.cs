@@ -15,12 +15,11 @@ builder.Services.AddHttpContextAccessor();
 builder.Services
     .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(configure =>
-{
-    configure.Cookie.Name = "Newsletter.Auth";
-    configure.LoginPath = "/Auth/Login";
-    configure.LoginPath = "/Auth/Login";
-    configure.AccessDeniedPath = "/Auth/Login";
-});
+    {
+        configure.Cookie.Name = "Newsletter.Auth";
+        configure.LoginPath = "/Auth/Login";
+        configure.AccessDeniedPath = "/Auth/Login";
+    });
 builder.Services.AddAuthorization();
 
 builder.Services.AddControllersWithViews();
@@ -54,7 +53,7 @@ using (var scoped = app.Services.CreateScope())
             UserName = "mfurkanayhan",
         };
 
-        userManager.CreateAsync(appUser, "Password12*").Wait();        
+        userManager.CreateAsync(appUser, "Password12*").Wait();
     }
 }
 

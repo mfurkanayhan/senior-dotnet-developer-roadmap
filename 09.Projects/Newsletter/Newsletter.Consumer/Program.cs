@@ -1,7 +1,22 @@
-﻿using RabbitMQ.Client;
+﻿using FluentEmail.Core;
+using FluentEmail.Core.Models;
+using Microsoft.Extensions.DependencyInjection;
+using Newsletter.Consumer.Context;
+using Newsletter.Consumer.Models;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
+
+var services = new ServiceCollection();
+
+services
+    .AddFluentEmail("mfurkana067@gmail.com")
+    .AddSmtpSender("localhost", 2525);
+
+var serviceProvider = services.BuildServiceProvider();
+
+ApplicationDbContext context = new();
 
 var factory = new ConnectionFactory { HostName = "localhost" };
 using var connection = factory.CreateConnection();
@@ -28,7 +43,28 @@ consumer.Received += (model, ea) =>
         Console.WriteLine("Response is empty or null");
     }
 
-    // mail gönderme işlemi
+    Blog? blog = context.Blogs.Find(response.BlogId);
+    if (blog is null)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Blog not found");
+    }
+
+    var fluentEmail = serviceProvider.GetRequiredService<IFluentEmail>();
+    SendResponse sendResponse = fluentEmail
+        .To(response.Email)
+        .Subject(blog!.Title)
+        .Body(blog.Content, true)
+        .Send();
+
+    if (!sendResponse.Successful)
+    {
+        Console.WriteLine($" [*] try to {response.Email} blog send but got an error");
+    }
+    else
+    {
+        Console.WriteLine($" [*] {response.Email} blog sended");
+    }
 };
 
 channel.BasicConsume(queue: "newsletter", autoAck: true, consumer: consumer);

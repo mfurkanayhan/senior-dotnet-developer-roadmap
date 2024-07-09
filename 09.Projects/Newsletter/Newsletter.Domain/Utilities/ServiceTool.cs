@@ -7,7 +7,6 @@ public static class ServiceTool
     public static IServiceCollection CreateServiceTool(this IServiceCollection services)
     {
         ServiceProvider = services.BuildServiceProvider();
-
         return services;
     }
 }

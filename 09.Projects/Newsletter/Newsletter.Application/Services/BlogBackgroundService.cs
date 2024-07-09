@@ -17,8 +17,12 @@ public sealed class BlogBackgroundService : BackgroundService
     {
         Console.WriteLine("Background service is working...");
 
-        var blogRepository = ServiceTool.ServiceProvider.GetRequiredService<IBlogRepository>();
+        if (ServiceTool.ServiceProvider == null)
+        {
+            throw new InvalidOperationException("ServiceProvider has not been initialized.");
+        }
 
+        var blogRepository = ServiceTool.ServiceProvider.GetRequiredService<IBlogRepository>();
 
         var factory = new ConnectionFactory { HostName = "localhost" };
         using var connection = factory.CreateConnection();
@@ -43,26 +47,27 @@ public sealed class BlogBackgroundService : BackgroundService
             if (response is null)
             {
                 Console.WriteLine("Response is empty or null");
+                return;
             }
 
-            Blog? blog = blogRepository.GetByExpression(p => p.Id == response!.BlogId);
+            Blog? blog = blogRepository.GetByExpression(p => p.Id == response.BlogId);
 
             if (blog is null)
             {
                 Console.WriteLine("Blog not found");
+                return;
             }
 
-            SendResponse sendResponse = fluentEmail
-            .To(response!.Email)
-            .Subject(blog!.Title)
+            SendResponse sendResponse = await fluentEmail
+            .To(response.Email)
+            .Subject(blog.Title)
             .Body(blog.Content, true)
-            .Send();
+            .SendAsync();
 
             if (sendResponse.Successful)
             {
                 Console.WriteLine($" [*] {response.Email} blogs sended");
             }
-
         };
 
         channel.BasicConsume(queue: "newsletter", autoAck: true, consumer: consumer);
@@ -73,7 +78,6 @@ public sealed class BlogBackgroundService : BackgroundService
         }
     }
 }
-
 
 public sealed record BlogQueueResponseDto(
     Guid BlogId,
