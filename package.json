@@ -1,0 +1,17 @@
+{
+  "name": "senior-dotnet-developer-roadmap",
+  "version": "1.0.0",
+  "description": "This repository is created to support the career development and roadmap of a software developer using .NET technologies. This roadmap includes resources that demonstrate how to progress from a beginner level to an experienced .NET developer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.4"
+  }
+}
