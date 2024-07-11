@@ -1,2 +1,2 @@
 - #### [01.eHospital](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/09.Projects/eHospital)
-- #### [02.Newsletter](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/09.Projects/02.Newsletter)
+- #### [02.Newsletter](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/09.Projects/Newsletter)
