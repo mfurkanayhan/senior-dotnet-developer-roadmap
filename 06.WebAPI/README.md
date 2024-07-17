@@ -7,3 +7,5 @@
 - #### [04.AccessModifierApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI/AccessModifierApp)
 
 - #### [05.PersonnelRegistrationApp](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI/PersonnelRegistrationApp)
+
+- #### [06.CancellationToken](https://github.com/mfurkanayhan/senior-dotnet-developer-roadmap/tree/main/06.WebAPI/CancellationToken)
