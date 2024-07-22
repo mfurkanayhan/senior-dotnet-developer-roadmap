@@ -5,7 +5,9 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QickServer.Domain", "QickServer.Domain\QickServer.Domain.csproj", "{967F62CD-5ABB-4DC1-A5BE-31C89A862C62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QickServer.Application", "QickServer.Applicaiton\QickServer.Application.csproj", "{B197AEBD-BD18-4B22-9419-8D648C988B39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QickServer.Application", "QickServer.Application\QickServer.Application.csproj", "{F8257621-AD0C-4EFA-BF79-169CFF823D4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QickServer.Infrastructure", "QickServer.Infrastructure\QickServer.Infrastructure.csproj", "{2CB308D0-174A-451A-A67D-8D3E9F2E7104}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{967F62CD-5ABB-4DC1-A5BE-31C89A862C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{967F62CD-5ABB-4DC1-A5BE-31C89A862C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{967F62CD-5ABB-4DC1-A5BE-31C89A862C62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B197AEBD-BD18-4B22-9419-8D648C988B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B197AEBD-BD18-4B22-9419-8D648C988B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B197AEBD-BD18-4B22-9419-8D648C988B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B197AEBD-BD18-4B22-9419-8D648C988B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8257621-AD0C-4EFA-BF79-169CFF823D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8257621-AD0C-4EFA-BF79-169CFF823D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8257621-AD0C-4EFA-BF79-169CFF823D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8257621-AD0C-4EFA-BF79-169CFF823D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB308D0-174A-451A-A67D-8D3E9F2E7104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB308D0-174A-451A-A67D-8D3E9F2E7104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB308D0-174A-451A-A67D-8D3E9F2E7104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB308D0-174A-451A-A67D-8D3E9F2E7104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
