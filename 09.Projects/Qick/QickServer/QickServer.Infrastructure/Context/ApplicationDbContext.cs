@@ -8,4 +8,9 @@ internal sealed class ApplicationDbContext : DbContext
     {}
 
     public DbSet<User> Users { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(DependencyInjection).Assembly);
+    }
 }
